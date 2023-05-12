@@ -1,8 +1,7 @@
-# Main application template
-
 import pygame as pg
 import sys  #system module
 from settings import *
+from map import *
 
 class Game:
    # in constructor we initialize the pygame modules
@@ -10,9 +9,10 @@ class Game:
       pg.init()
       self.screen = pg.display.set_mode(RES)  # creating screen for rendering the set resolution
       self.clock = pg.time.Clock()            # instance of the clock class for framer 8
+      self.new_game()                         # call to the method from main app constructor
       
    def new_game(self):
-      pass
+      self.map = Map(self)                    # instance of the map class
    
    def update(self):
       pg.display.flip()                       # update the screen
@@ -21,6 +21,7 @@ class Game:
       
    def draw(self):
       self.screen.fill('black')               # at each iteration we paint our screen in black
+      self.map.draw()
 
    def check_events(self):
       for event in pg.event.get():            # check the events for closing the working window
