@@ -10,6 +10,12 @@
 
 - pip install pygame
 
+
+### Ray Casting
+
+Cast a given number of rays in a certain fow of the player and for each ray, 
+we need to determine the intersection point with the wall
+
 ### File Structure
 
 - main.py: Main application template
