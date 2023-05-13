@@ -2,18 +2,24 @@ import math
 
 # game setting & fps
 RES = WIDTH, HEIGHT = 1600, 900
+HALF_WIDTH = WIDTH // 2
+HALF_HEIGHT = HEIGHT // 2
 FPS = 0
 
-# mini_map
+# mini map
 PLAYER_POSITION = 1.5, 5  
 PLAYER_ANGLE_DIRECTION = 0
 PLAYER_MOVEMENT_SPEED = 0.004
 PLAYER_ROTATION_SPEED = 0.002
 
-# ray_casting
+# ray casting
 FOV = math.pi / 3
 HALF_FOV = FOV / 2
 NUM_RAYS = WIDTH // 2
 HALF_NUM_RAYS = NUM_RAYS // 2
 DELTA_ANGLE = FOV / NUM_RAYS
 MAX_DEPTH = 20
+
+# 3d projection
+SCREEN_DISTANCE = HALF_WIDTH / math.tan(HALF_FOV)
+SCALE = WIDTH // NUM_RAYS
