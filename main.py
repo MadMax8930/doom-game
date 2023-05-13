@@ -3,6 +3,7 @@ import sys  #system module
 from settings import *
 from game_map import *
 from player import *
+from raycasting import *
 
 class Game:
    # in constructor we initialize the pygame modules
@@ -19,9 +20,11 @@ class Game:
    def new_game(self):
       self.map = Map(self)                    # instance of the map class
       self.player = Player(self)              # instance of the player class
+      self.raycasting = RayCasting(self)      # instance of the raycasting class
    
    def update(self):
       self.player.update()
+      self.raycasting.update()
       pg.display.flip()                       # update the screen
       self.delta_time = self.clock.tick(FPS)  # display information about the current fps
       pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
