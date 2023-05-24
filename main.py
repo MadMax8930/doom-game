@@ -10,6 +10,7 @@ class Game:
    # in constructor we initialize the pygame modules
    def __init__(self):
       pg.init()
+      pg.mouse.set_visible(False)
       self.screen = pg.display.set_mode(RES)  # creating screen for rendering the set resolution
       self.clock = pg.time.Clock()            # instance of the clock class for frame rate
       self.delta_time = 1                     # Delta time: is the amount of time that has passed since the last frame
@@ -31,7 +32,7 @@ class Game:
       pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
       
    def draw(self):
-      self.screen.fill('black')
+      # self.screen.fill('black')
       self.object_renderer.draw()
       # self.map.draw()
       # self.player.draw()
