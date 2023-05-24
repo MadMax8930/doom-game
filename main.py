@@ -32,6 +32,7 @@ class Game:
       
    def draw(self):
       self.screen.fill('black')
+      self.object_renderer.draw()
       # self.map.draw()
       # self.player.draw()
 
@@ -48,7 +49,7 @@ class Game:
          self.update()
          self.draw()
          
-# instance of our game with run method call
+# instance of our game with call
 if __name__ == '__main__':
    game = Game()
    game.run()
