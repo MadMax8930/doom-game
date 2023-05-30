@@ -1,6 +1,5 @@
 import pygame as pg
 
-# Two dimensional array (1: wall , False: space)
 _ = False
 mini_map = [
    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

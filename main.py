@@ -19,15 +19,15 @@ class Game:
       # If we want the player's movement speed to be independent of the frame rate, we need to get the Delta time value for each frame
       
    def new_game(self):
-      self.map = Map(self)                             # instance of the map class
-      self.player = Player(self)                       # instance of the player class
-      self.object_renderer = ObjectRenderer(self)      # instance of the object renderer class
-      self.raycasting = RayCasting(self)               # instance of the raycasting class
+      self.map = Map(self)
+      self.player = Player(self)
+      self.object_renderer = ObjectRenderer(self)
+      self.raycasting = RayCasting(self)
    
    def update(self):
       self.player.update()
       self.raycasting.update()
-      pg.display.flip()                                # update the screen
+      pg.display.flip()
       self.delta_time = self.clock.tick(FPS)
       pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
       
@@ -50,7 +50,7 @@ class Game:
          self.update()
          self.draw()
          
-# instance of our game with call
+# Game instance call
 if __name__ == '__main__':
    game = Game()
    game.run()

@@ -20,3 +20,6 @@ Cast a given number of rays in a certain fow of the player and for each ray, we 
 - game_map.py: Game world
 - settings.py : Screen resolution & Frame rate
 - raycasting.py : Engine of the game
+
+   
+pg.display.flip()                                # update the screen
