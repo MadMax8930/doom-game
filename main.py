@@ -7,6 +7,8 @@ from raycasting import *
 from object_renderer import *
 from object_handler import *
 from weapon import *
+from sound import *
+from pathfinding import *
 
 
 class Game:
@@ -29,6 +31,7 @@ class Game:
       self.object_handler = ObjectHandler(self)
       self.weapon = Weapon(self)
       self.sound = Sound(self)
+      self.pathfinding = PathFinding(self)
    
    def update(self):
       self.player.update()
@@ -41,11 +44,11 @@ class Game:
       pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
       
    def draw(self):
-      # self.object_renderer.draw()
-      # self.weapon.draw()
-      self.screen.fill('black')
-      self.map.draw()
-      self.player.draw()
+      self.object_renderer.draw()
+      self.weapon.draw()
+      # self.screen.fill('black')
+      # self.map.draw()
+      # self.player.draw()
 
    def check_events(self):
       self.global_trigger = False
