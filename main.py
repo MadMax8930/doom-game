@@ -5,33 +5,28 @@ from game_map import *
 from player import *
 from raycasting import *
 from object_renderer import *
-from sprite_object import *
+from object_handler import *
 
 class Game:
-   # in constructor we initialize the pygame modules
    def __init__(self):
       pg.init()
       pg.mouse.set_visible(False)
-      self.screen = pg.display.set_mode(RES)  # creating screen for rendering the set resolution
-      self.clock = pg.time.Clock()            # instance of the clock class for frame rate
-      self.delta_time = 1                     # Delta time: is the amount of time that has passed since the last frame
-      self.new_game()                         # call to the method from main app constructor
-      
-      # If we want the player's movement speed to be independent of the frame rate, we need to get the Delta time value for each frame
+      self.screen = pg.display.set_mode(RES)
+      self.clock = pg.time.Clock()
+      self.delta_time = 1
+      self.new_game()
       
    def new_game(self):
       self.map = Map(self)
       self.player = Player(self)
       self.object_renderer = ObjectRenderer(self)
       self.raycasting = RayCasting(self)
-      self.static_sprite = SpriteObject(self)
-      self.animated_sprite = AnimatedSprite(self)
+      self.object_handler = ObjectHandler(self)
    
    def update(self):
       self.player.update()
       self.raycasting.update()
-      self.static_sprite.update()
-      self.animated_sprite.update()
+      self.object_handler.update()
       pg.display.flip()
       self.delta_time = self.clock.tick(FPS)
       pg.display.set_caption(f'{self.clock.get_fps() :.1f}')

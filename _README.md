@@ -20,6 +20,13 @@ Cast a given number of rays in a certain fow of the player and for each ray, we 
 - game_map.py: Game world
 - settings.py : Screen resolution & Frame rate
 - raycasting.py : Engine of the game
+- object_renderer.py : Access textures
 
-   
+
 pg.display.flip()                                # update the screen
+
+game def __init__                                # in constructor we initialize the pygame modules
+self.screen = pg.display.set_mode(RES)  # creating screen for rendering the set resolution
+self.clock = pg.time.Clock()            # instance of the clock class for frame rate
+self.delta_time = 1                     # Delta time: is the amount of time that has passed since the last frame
+->  # If we want the player's movement speed to be independent of the frame rate, we need to get the Delta time value for each frame

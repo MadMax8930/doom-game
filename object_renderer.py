@@ -5,7 +5,7 @@ class ObjectRenderer:
    def __init__(self, game):
       self.game = game
       self.screen = game.screen
-      self.wall_textures = self.load_wall_textures() # access textures
+      self.wall_textures = self.load_wall_textures()
       self.sky_image = self.get_textures('resources/textures/sky.png', (WIDTH, HALF_HEIGHT))
       self.sky_offset = 0
       
