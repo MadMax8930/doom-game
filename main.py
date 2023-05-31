@@ -7,7 +7,6 @@ from raycasting import *
 from object_renderer import *
 from object_handler import *
 from weapon import *
-from sound import *
 
 
 class Game:
