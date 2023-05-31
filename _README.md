@@ -25,7 +25,7 @@ Cast a given number of rays in a certain fow of the player and for each ray, we 
 
 pg.display.flip()                                # update the screen
 
-game def __init__                                # in constructor we initialize the pygame modules
+game def __init__                       # in constructor we initialize the pygame modules
 self.screen = pg.display.set_mode(RES)  # creating screen for rendering the set resolution
 self.clock = pg.time.Clock()            # instance of the clock class for frame rate
 self.delta_time = 1                     # Delta time: is the amount of time that has passed since the last frame
