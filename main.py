@@ -14,9 +14,9 @@ from pathfinding import *
 class Game:
    def __init__(self):
       pg.init()
-      pg.mouse.set_visible(False)
       self.screen = pg.display.set_mode(RES)
       self.clock = pg.time.Clock()
+      pg.mouse.set_visible(False)
       self.delta_time = 1
       self.global_trigger = False
       self.global_event = pg.USEREVENT + 0
@@ -32,6 +32,7 @@ class Game:
       self.weapon = Weapon(self)
       self.sound = Sound(self)
       self.pathfinding = PathFinding(self)
+      pg.mixer.music.play(-1)
    
    def update(self):
       self.player.update()
