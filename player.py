@@ -12,6 +12,7 @@ class Player:
       self.rel = 0
       self.health_recovery_delay = 700
       self.time_prev = pg.time.get_ticks()
+      self.diag_mov = 1 / math.sqrt(2)
       
    def recover_health(self):
       if self.check_health_recovery_delay() and self.health < PLAYER_MAX_HEALTH:
@@ -54,18 +55,28 @@ class Player:
       speed_cos = speed * cos_a
       
       keys = pg.key.get_pressed()
+      num_key_pressed = -1
       if keys[pg.K_z]:
+         num_key_pressed += 1
          dx += speed_cos
          dy += speed_sin
       if keys[pg.K_s]:
+         num_key_pressed += 1
          dx += -speed_cos
          dy += -speed_sin
       if keys[pg.K_q]:
+         num_key_pressed += 1
          dx += speed_sin
          dy += -speed_cos
       if keys[pg.K_d]:
+         num_key_pressed += 1
          dx += -speed_sin
          dy += speed_cos
+         
+         # diag movement
+         if num_key_pressed:
+            dx *= self.diag_mov
+            dy *= self.diag_mov
          
       self.check_wall_collision(dx, dy)
       
