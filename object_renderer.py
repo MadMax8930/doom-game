@@ -13,11 +13,15 @@ class ObjectRenderer:
       self.digit_images = [self.get_textures(f'resources/textures/digits/{i}.png', [self.digit_size] * 2) for i in range(11)]
       self.digits = dict(zip(map(str, range(11)), self.digit_images))
       self.game_over_image = self.get_textures('resources/textures/game_over.png', RES)
+      self.victory_image = self.get_textures('resources/textures/win.png', RES)
       
    def draw(self):
       self.draw_background()
       self.render_game_objects()
       self.draw_player_health()
+      
+   def win(self):
+      self.screen.blit(self.victory_image,(0, 0))
       
    def game_over(self):
       self.screen.blit(self.game_over_image, (0, 0))
