@@ -1,6 +1,5 @@
 from sprite_object import *
-from random import randint, random, choice
-from sound import *
+from random import randint, random
 
 class NPC(AnimatedSprite):
    def __init__(self, game, path='resources/sprites/npc/soldier/0.png', pos=(10.5, 5.5), scale=0.6, shift=0.38, animation_time=180):
@@ -15,7 +14,7 @@ class NPC(AnimatedSprite):
       self.speed = 0.01
       self.size = 20
       self.health = 100
-      self.attack_damage = 10
+      self.attack_damage = 8
       self.accuracy = 0.15
       self.alive = True
       self.pain = False
@@ -178,3 +177,25 @@ class NPC(AnimatedSprite):
       if self.ray_cast_player_npc():
          pg.draw.line(self.game.screen, 'orange', (100 * self.game.player.x, 100 * self.game.player.y), (100 * self.x, 100 * self.y), 2)
          
+
+class SoldierNPC(NPC):
+   def __init__(self, game, path='resources/sprites/npc/soldier/0.png', pos=(10.5, 5.5), scale=0.6, shift=0.38, animation_time=180):
+      super().__init__(game, path, pos, scale, shift, animation_time)
+      
+class CacoDemonNPC(NPC):
+   def __init__(self, game, path='resources/sprites/npc/caco_demon/0.png', pos=(10.5, 6.5), scale=0.7, shift=0.27, animation_time=250):
+      super().__init__(game, path, pos, scale, shift, animation_time)
+      self.attack_dist = 1.0
+      self.health = 150
+      self.attack_damage = 14
+      self.speed = 0.02
+      self.accuracy = 0.35
+      
+class CyberDemonNPC(NPC):
+   def __init__(self, game, path='resources/sprites/npc/cyber_demon/0.png', pos=(11.5, 6.0), scale=1.0, shift=0.04, animation_time=210):
+      super().__init__(game, path, pos, scale, shift, animation_time)
+      self.attack_dist = 6
+      self.health = 250
+      self.attack_damage = 20
+      self.speed = 0.015
+      self.accuracy = 0.25
